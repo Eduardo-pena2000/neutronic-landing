@@ -100,23 +100,23 @@ body {
 .atom-nucleus {
   animation: pulse-nucleus 3s infinite ease-in-out;
   transform-origin: center;
-  transform-box: fill-box;
+  transform-box: view-box;
 }
 
 .atom-orbit-1 {
   animation: rotate-orbit-1 8s linear infinite;
   transform-origin: center;
-  transform-box: fill-box;
+  transform-box: view-box;
 }
 
 .atom-orbit-2 {
   animation: rotate-orbit-2 12s linear infinite;
   transform-origin: center;
-  transform-box: fill-box;
+  transform-box: view-box;
 }
 
 .atom-orbit-3 {
   animation: rotate-orbit-3 10s linear infinite;
   transform-origin: center;
-  transform-box: fill-box;
+  transform-box: view-box;
 }

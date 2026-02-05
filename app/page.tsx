@@ -17,9 +17,9 @@ export default function Home() {
           <Navbar />
         </div>
       </header>
-      <main className="pt-24">
+      <main className="pt-0">
+        <Hero />
         <div className="max-w-7xl mx-auto px-6">
-          <Hero />
           <Services />
         </div>
         <Stats />
