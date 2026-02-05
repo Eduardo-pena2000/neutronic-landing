@@ -4,43 +4,40 @@ import { motion } from "framer-motion"
 
 export default function AnimatedAtom() {
   return (
-    <motion.svg
+    <svg
       width="300"
       height="300"
       viewBox="0 0 200 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      animate={{ rotate: [0, 360] }}
-      transition={{
-        repeat: Infinity,
-        duration: 25,
-        ease: "linear",
-      }}
+      className="max-w-full h-auto aspect-square"
     >
-      {/* Órbita horizontal - cyan/azul */}
-      <ellipse cx="100" cy="100" rx="85" ry="32" stroke="#22D3EE" strokeWidth="2.5" fill="none"/>
-
-      {/* Órbita diagonal derecha - púrpura */}
-      <ellipse cx="100" cy="100" rx="85" ry="32" stroke="#A855F7" strokeWidth="2.5" fill="none" transform="rotate(55 100 100)"/>
-
-      {/* Órbita diagonal izquierda - rosa/magenta */}
-      <ellipse cx="100" cy="100" rx="85" ry="32" stroke="#EC4899" strokeWidth="2.5" fill="none" transform="rotate(-55 100 100)"/>
+      <defs>
+        <linearGradient id="atomLargeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#22D3EE" />
+          <stop offset="50%" stopColor="#A855F7" />
+          <stop offset="100%" stopColor="#ff0080" />
+        </linearGradient>
+      </defs>
 
       {/* Núcleo central */}
-      <circle cx="100" cy="100" r="16" stroke="#A855F7" strokeWidth="2.5" fill="none"/>
-      <circle cx="100" cy="100" r="6" fill="#A855F7"/>
+      <circle className="atom-nucleus" cx="100" cy="100" r="15" fill="url(#atomLargeGradient)" />
 
-      {/* Electrones en órbita horizontal (cyan) */}
-      <circle cx="185" cy="100" r="7" fill="#22D3EE"/>
-      <circle cx="15" cy="100" r="7" fill="#22D3EE"/>
+      {/* Órbitas rotando */}
+      <g className="atom-orbit-1">
+        <ellipse cx="100" cy="100" rx="80" ry="30" stroke="url(#atomLargeGradient)" strokeWidth="4" fill="none" />
+        <circle cx="100" cy="40" r="10" fill="url(#atomLargeGradient)" />
+      </g>
 
-      {/* Electrones en órbita diagonal derecha (púrpura) */}
-      <circle cx="52" cy="32" r="7" fill="#22D3EE"/>
-      <circle cx="148" cy="168" r="7" fill="#A855F7"/>
+      <g className="atom-orbit-2">
+        <ellipse cx="100" cy="100" rx="80" ry="30" stroke="url(#atomLargeGradient)" strokeWidth="4" fill="none" />
+        <circle cx="170" cy="130" r="10" fill="url(#atomLargeGradient)" />
+      </g>
 
-      {/* Electrones en órbita diagonal izquierda (rosa) */}
-      <circle cx="148" cy="32" r="7" fill="#EC4899"/>
-      <circle cx="52" cy="168" r="7" fill="#EC4899"/>
-    </motion.svg>
+      <g className="atom-orbit-3">
+        <ellipse cx="100" cy="100" rx="80" ry="30" stroke="url(#atomLargeGradient)" strokeWidth="4" fill="none" />
+        <circle cx="30" cy="130" r="10" fill="url(#atomLargeGradient)" />
+      </g>
+    </svg>
   )
 }
