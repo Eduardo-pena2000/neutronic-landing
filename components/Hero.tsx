@@ -104,29 +104,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Trust badges */}
-          <motion.div
-            className="flex flex-wrap items-center gap-6 mt-12 pt-8 border-t border-[var(--card-border)]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-          >
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                {["SM", "JC", "MR"].map((initials, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-[var(--background)]">
-                    {initials}
-                  </div>
-                ))}
-              </div>
-              <span className="text-sm text-[var(--text-muted)]">180+ happy clients</span>
-            </div>
-            <div className="flex items-center gap-1 text-yellow-400">
-              {[...Array(5)].map((_, i) => (
-                <span key={i}>★</span>
-              ))}
-              <span className="text-sm text-[var(--text-muted)] ml-1">4.9/5 rating</span>
-            </div>
-          </motion.div>
+
         </motion.div>
 
         <motion.div

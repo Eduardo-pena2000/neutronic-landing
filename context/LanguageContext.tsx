@@ -86,6 +86,33 @@ const translations = {
       emailLabel: "Email",
       phoneLabel: "Phone",
     },
+    techStack: {
+      title: "Technologies We Use",
+      description: "We build with the most modern and robust tools in the market.",
+    },
+    workflow: {
+      title: "How We Work",
+      description: "An agile and transparent process focused on results.",
+      step1: "Discovery",
+      step1Desc: "We understand your needs and goals.",
+      step2: "Design",
+      step2Desc: "We create prototypes and visual experiences.",
+      step3: "Development",
+      step3Desc: "We build your solution with clean code.",
+      step4: "Launch",
+      step4Desc: "We deploy and optimize your product.",
+    },
+    portfolio: {
+      title: "Featured Projects",
+      description: "Explore some of our recent work.",
+      viewProject: "View Project",
+      project1Title: "Future E-Commerce",
+      project1Desc: "AI-powered online commerce platform.",
+      project2Title: "FinTech App",
+      project2Desc: "Secure and fast digital wallet.",
+      project3Title: "SaaS Dashboard",
+      project3Desc: "Real-time data analytics.",
+    },
   },
   es: {
     nav: {
@@ -168,6 +195,33 @@ const translations = {
       emailLabel: "Correo",
       phoneLabel: "Teléfono",
     },
+    techStack: {
+      title: "Tecnologías que Usamos",
+      description: "Construimos con las herramientas más modernas y robustas del mercado.",
+    },
+    workflow: {
+      title: "Cómo Trabajamos",
+      description: "Un proceso ágil y transparente centrado en resultados.",
+      step1: "Descubrimiento",
+      step1Desc: "Entendemos tus necesidades y objetivos.",
+      step2: "Diseño",
+      step2Desc: "Creamos prototipos y experiencias visuales.",
+      step3: "Desarrollo",
+      step3Desc: "Construimos tu solución con código limpio.",
+      step4: "Lanzamiento",
+      step4Desc: "Desplegamos y optimizamos tu producto.",
+    },
+    portfolio: {
+      title: "Proyectos Destacados",
+      description: "Explora algunos de nuestros trabajos recientes.",
+      viewProject: "Ver Proyecto",
+      project1Title: "E-Commerce Futuro",
+      project1Desc: "Plataforma de comercio online con AI.",
+      project2Title: "App FinTech",
+      project2Desc: "Billetera digital segura y rápida.",
+      project3Title: "Dashboard SaaS",
+      project3Desc: "Analítica de datos en tiempo real.",
+    },
   },
 }
 
@@ -182,7 +236,7 @@ type LanguageContextType = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguage] = useState<Language>("es")
 
   useEffect(() => {
     const stored = localStorage.getItem("language") as Language | null

@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { useTheme } from "@/context/ThemeContext"
 import { useLanguage } from "@/context/LanguageContext"
@@ -7,6 +8,7 @@ import { useLanguage } from "@/context/LanguageContext"
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme()
   const { language, toggleLanguage, t } = useLanguage()
+  const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
     { href: "#home", label: t.nav.home },
@@ -43,7 +45,7 @@ export default function Navbar() {
         </svg>
         <div className="flex flex-col overflow-hidden">
           <span className="text-xl font-bold text-[var(--foreground)] truncate">Neutronic</span>
-          <span className="text-[10px] tracking-[0.2em] text-[var(--text-muted)] uppercase">Solutions</span>
+          <span className="text-[10px] tracking-[0.2em] uppercase bg-gradient-to-r from-cyan-500 to-pink-500 bg-clip-text text-transparent font-bold">Solutions</span>
         </div>
       </motion.a>
 
@@ -53,8 +55,8 @@ export default function Navbar() {
             <motion.a
               key={link.href}
               href={link.href}
-              className="relative"
-              whileHover={{ color: "var(--foreground)" }}
+              className="relative transition-colors duration-300 hover:text-cyan-500"
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
               {link.label}
@@ -104,7 +106,39 @@ export default function Navbar() {
             </svg>
           )}
         </motion.button>
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          className="md:hidden p-2 text-[var(--foreground)]"
+          onClick={() => setIsOpen(!isOpen)}
+          whileTap={{ scale: 0.9 }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {isOpen ? <path d="M18 6L6 18M6 6l12 12" /> : <path d="M3 12h18M3 6h18M3 18h18" />}
+          </svg>
+        </motion.button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <motion.div
+          className="fixed inset-x-0 top-[73px] bottom-0 bg-[var(--background)] z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-2xl font-bold text-[var(--foreground)] hover:text-cyan-500 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </motion.div>
+      )}
     </motion.nav>
   )
 }
