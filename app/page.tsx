@@ -11,6 +11,7 @@ import Portfolio from "@/components/Portfolio"
 import FAQ from "@/components/FAQ"
 import ScrollProgress from "@/components/ScrollProgress"
 import ScrollToTop from "@/components/ScrollToTop"
+import WhatsAppButton from "@/components/WhatsAppButton"
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
         <Footer />
       </main>
       <ScrollToTop />
+      <WhatsAppButton />
     </>
   )
 }
