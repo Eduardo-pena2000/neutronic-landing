@@ -22,7 +22,7 @@ const contactInfo = [
       </svg>
     ),
     title: { en: "Call Us", es: "Llámanos" },
-    value: "81 3628 5741",
+    value: "81 4424 6517",
     subtitle: { en: "Mon-Fri, 9AM-6PM", es: "Lun-Vie, 9AM-6PM" }
   },
   {
